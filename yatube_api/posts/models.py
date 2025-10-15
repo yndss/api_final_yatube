@@ -41,6 +41,7 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
 
+
 class Follow(models.Model):
     user = models.ForeignKey(
         User,
@@ -55,4 +56,3 @@ class Follow(models.Model):
 
     class Meta:
         unique_together = ('user', 'following')
-        

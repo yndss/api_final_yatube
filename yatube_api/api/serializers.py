@@ -34,7 +34,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = '__all__'
-        model = Group 
+        model = Group
 
 
 class FollowSerializer(serializers.ModelSerializer):
@@ -44,11 +44,11 @@ class FollowSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = Follow 
+        model = Follow
         fields = ('user', 'following')
-    
+
     def validate(self, attrs):
-        user = self.context['request'].user 
+        user = self.context['request'].user
         following = attrs['following']
         if user == following:
             raise serializers.ValidationError(
